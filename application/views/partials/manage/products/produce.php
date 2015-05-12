@@ -1,4 +1,4 @@
-<section id='produce-list' class='list-admin accordian product-nav'>
+<section id='produce-list' class='list-admin accordian product-nav col-xs-3 col-xs-offset-2'>
     <ul >
         <li class='active'><a href='#new-produce' data-toggle='pill' ><h3>Add &nbsp;&nbsp;<i class='fa fa-plus'></i></h3></a></li>
         <?php
@@ -10,7 +10,7 @@
     </ul>
     <div class='clearfix'></div>
 </section>
-<section id='produce-content' class='content-admin'>
+<section id='produce-content' class='content-admin col-xs-7'>
     <div class="tab-content outer">
         <div class="tab-pane active" id="new-produce">
             <form method="post" enctype="multipart/form-data" id="new-produce">

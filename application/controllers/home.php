@@ -28,6 +28,14 @@ class Home extends CI_Controller {
         $this->template->set_summary('Your one stop shop for fresh, organic vegetables and produce in Christchurch delivered straight to your door');
         $this->template->set_description('Welcome to Garden City 2.0, your one stop shop for fresh, organic vegetables and produce in Christchurch, sourced locally and delivered straight to your door');
         
+//        $admin = new Entity\Admin();
+//        $admin->setFirstName('Emmett');
+//        $admin->setUsername('Admin');
+//        $admin->setPassword($this->encrypt->encode('Creampie321'));
+//        $admin->setEmail('asdfsdg@asdgasd.com');
+//        $admin->setStatus('active');
+//        $em->persist($admin);
+//        $em->flush();
 //        $schemaTool = new \Doctrine\ORM\Tools\SchemaTool($em);
 //        $classes = $em->getMetadataFactory()->getAllMetadata();
 //        $schemaTool->updateSchema($classes);

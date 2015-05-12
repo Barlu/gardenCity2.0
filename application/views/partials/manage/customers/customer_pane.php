@@ -37,7 +37,8 @@
             echo form_dropdown('accountType', [
                 'public' => 'Public',
                 'wholesaler' => 'Wholesaler',
-                'staff' => 'Staff'
+                'staff' => 'Staff',
+                'admin' => 'Admin'
                     ], $customer->getType(), 'class="form-control input-md"');
             ?>
         </div>

@@ -1,4 +1,5 @@
 <?php
+
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
@@ -513,7 +514,7 @@ class Ajax extends CI_Controller {
                 return json_encode(FALSE);
             }
 
-            if (!$this->input->post('wholesaler') && $this->session->userdata('usertype') !== 'admin') {
+            if ($this->session->userdata('usertype') === 'admin' || !$this->input->post('wholesaler')) {
                 $user->setStatus('active');
             } else {
                 //This means user is wholesaler and account needs to be activated before use
@@ -534,6 +535,9 @@ class Ajax extends CI_Controller {
 
             if ($user->getType() === 'wholesaler') {
                 $user->setBusinessName($this->input->post('businessName'));
+            }
+            if ($this->input->post('activate') && $this->session->userdata('usertype') === 'admin') {
+                $user->setStatus('active');
             }
 
             if ($this->input->post('password')) {
@@ -577,7 +581,11 @@ class Ajax extends CI_Controller {
             $this->session->set_userdata('userid', $user->getId());
             $data['user'] = $user;
             //Load view to display name and log out link
-            $this->load->view('partials/account_link', $data);
+            if ($user->getType() === 'admin') {
+                $this->load->view('partials/admin-account_link', $data);
+            } else {
+                $this->load->view('partials/account_link', $data);
+            }
             return;
         }
 

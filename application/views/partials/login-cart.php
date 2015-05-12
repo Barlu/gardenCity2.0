@@ -1,4 +1,5 @@
 <div id="login-cart-wrap"  data-spy="affix" data-offset-top="100">
+    <h1 class="logo"><a href="<?php echo base_url() ?>"><span class="primary">Garden</span> City 2.0</a></h1>
     <div id="login-cart" class="flex-row-stretch padding pull-right">
         <div id='login' class="flex-column">
             <?php if ($user): ?>

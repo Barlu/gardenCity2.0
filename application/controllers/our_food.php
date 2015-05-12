@@ -12,7 +12,7 @@ class Our_Food extends CI_Controller {
         $criteria = new \Doctrine\Common\Collections\Criteria();
         
         $em = $this->doctrine->em;
-        if(!$this->session->set_userdata('usertype')){
+        if(!$this->session->userdata('usertype')){
             $this->session->set_userdata('usertype', 'public');
         }
         

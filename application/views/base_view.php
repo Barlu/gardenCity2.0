@@ -8,14 +8,14 @@
         <link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet prefetch' title="fonts" type='text/css'>
 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/normalize.css" />
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/font-awesome.min.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-timepicker.min.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-tagsinput.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/blueimp-gallery.min.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/slideme.css" />
         <link href="<?php echo base_url(); ?>assets/css/dropzone.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/main.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/main.min.css" />
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-1.11.2.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/prefixfree.min.js"></script>
     </head>

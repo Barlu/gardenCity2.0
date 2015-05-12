@@ -9,7 +9,7 @@
         <ol class="indicator"></ol>
     </div>
 
-    <div id="links" class="flex-row-center">
+    <div id="links" class="flex-row">
         <?php foreach ($gallery->getImages() as $image) : ?>
             <a href="<?php echo $image->getLocation('medium') ?>" title="<?php echo $image->getTitle() ?>" data-gallery>
                 <img src="<?php echo $image->getLocation('thumb') ?>" alt="<?php echo $image->getTitle() ?>">

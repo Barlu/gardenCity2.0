@@ -22,53 +22,64 @@
             </div>
             <div class="divider"></div>
             <div class="padding-top-bottom-large" id="tour">
-                <article id='foodbags' class="padding image-fade small-article col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0">
+                <article id='foodbags' class="padding image-fade small-article col-xs-10 col-xs-offset-1 col-sm-12 col-md-4 col-sm-offset-0">
                     <a href="<?php echo base_url(); ?>our_food" class="link-article">
-                        <div class="black-background box-shadow">
-                            <div class="image-border flex-column">
-                                <h1>Food Bags</h1>
+                        <div class="col-sm-6 col-md-12">
+                            <div class="black-background box-shadow">
+                                <div class="image-border flex-column">
+                                    <h1>Food Bags</h1>
+                                </div>
+                                <img src="<?php echo base_url(); ?>assets/images/food-bag-home.jpg"/>
                             </div>
-                            <img src="<?php echo base_url(); ?>assets/images/food-bag-home.jpg"/>
                         </div>
-                        <p>
-                            Fusce sit amet turpis tempus, tempor massa eget, facilisis urna. Aenean pulvinar ex in tortor pellentesque, ut tincidunt tellus porta. Aenean pulvinar ex in tortor pellentesque, ut tincidunt tellus porta.usce lacus nunc, egestas in fermentum a, finibus eget metus. Suspendisse potenti.
-                        </p>
+                        <div class="col-sm-6 col-md-12">
+                            <p>
+                                Fusce sit amet turpis tempus, tempor massa eget, facilisis urna. Aenean pulvinar ex in tortor pellentesque, ut tincidunt tellus porta. Aenean pulvinar ex in tortor pellentesque, ut tincidunt tellus porta.usce lacus nunc, egestas in fermentum a, finibus eget metus. Suspendisse potenti.
+                            </p>
 
 
-                        <p class="pull-right primary" >read more <i class="fa fa-long-arrow-right"></i></p>
-
+                            <p class="pull-right primary" >read more <i class="fa fa-long-arrow-right"></i></p>
+                        </div>
                         <div class="clear"></div>
                     </a>
                 </article>
 
-                <article id='community' class="padding image-fade small-article col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0">
+                <article id='community' class="padding image-fade small-article col-xs-10 col-xs-offset-1 col-sm-6 col-md-4 col-sm-offset-0">
                     <a href="<?php echo base_url(); ?>our_community" class="link-article">
-                        <div class="black-background box-shadow">
-                            <div class="image-border flex-column">
-                                <h1>Community</h1>
+                        <div class="col-xs-12">
+                            <div class="black-background box-shadow">
+                                <div class="image-border flex-column">
+                                    <h1>Community</h1>
+                                </div>
+                                <img src="<?php echo base_url(); ?>assets/images/community-home.jpg"/>
                             </div>
-                            <img src="<?php echo base_url(); ?>assets/images/community-home.jpg"/>
                         </div>
-                        <p>
-                            Fusce sit amet turpis tempus, tempor massa eget, facilisis urna. Aenean pulvinar ex in tortor pellentesque, ut tincidunt tellus porta. Donec tempus bibendum quam non facilisis. Fusce semper eros id orci tempus mattis. Morbi mollis condimentum semper. Fusce molestie non est accumsan consectetur.
-                        </p>
-                        <p class="pull-right primary" >read more <i class="fa fa-long-arrow-right"></i></p>
+                        <div class="col-xs-12">
+                            <p>
+                                Fusce sit amet turpis tempus, tempor massa eget, facilisis urna. Aenean pulvinar ex in tortor pellentesque, ut tincidunt tellus porta. Donec tempus bibendum quam non facilisis. Fusce semper eros id orci tempus mattis. Morbi mollis condimentum semper. Fusce molestie non est accumsan consectetur.
+                            </p>
+                            <p class="pull-right primary" >read more <i class="fa fa-long-arrow-right"></i></p>
+                        </div>
                         <div class="clear"></div>
                     </a>
                 </article>
 
-                <article id='recipes' class="padding image-fade small-article col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0">
+                <article id='recipes' class="padding image-fade small-article col-xs-10 col-xs-offset-1 col-sm-6 col-md-4 col-sm-offset-0">
                     <a href="<?php echo base_url(); ?>our_food/recipes" class="link-article">
-                        <div class="black-background box-shadow">
-                            <div class="image-border flex-column">
-                                <h1>Recipes</h1>
+                        <div class="col-xs-12">
+                            <div class="black-background box-shadow">
+                                <div class="image-border flex-column">
+                                    <h1>Recipes</h1>
+                                </div>
+                                <img src="<?php echo base_url(); ?>assets/images/recipie-home.jpg"/>
                             </div>
-                            <img src="<?php echo base_url(); ?>assets/images/recipie-home.jpg"/>
                         </div>
-                        <p>
-                            Fusce sit amet turpis tempus, tempor massa eget, facilisis urna. Aenean pulvinar ex in tortor pellentesque, ut tincidunt tellus porta. Donec tempus bibendum quam non facilisis. Fusce semper eros id orci tempus mattis. 
-                        </p>
-                        <p class="pull-right primary" >read more <i class="fa fa-long-arrow-right"></i></p>
+                        <div class="col-xs-12">
+                            <p>
+                                Fusce sit amet turpis tempus, tempor massa eget, facilisis urna. Aenean pulvinar ex in tortor pellentesque, ut tincidunt tellus porta. Donec tempus bibendum quam non facilisis. Fusce semper eros id orci tempus mattis. 
+                            </p>
+                            <p class="pull-right primary" >read more <i class="fa fa-long-arrow-right"></i></p>
+                        </div>
                         <div class="clear"></div>
                     </a>
                 </article>

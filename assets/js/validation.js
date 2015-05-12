@@ -5,14 +5,8 @@
  */
 var base_url = window.location.origin + '/gardenCity2/index.php/';
 
-var EMPTY = 'EMPTY';
-var FORMAT = 'INCORRECT_FORMAT';
-var EXISTS = 'ALREADY_EXISTS';
-var SUCCESS = 'OK';
-
-var Validator = (function() {
+var Validator = (function () {
     return $('#registration-form').validate({
-        debug: true,
         rules: {
             firstName: {
                 required: true
@@ -23,7 +17,7 @@ var Validator = (function() {
                     url: base_url + 'ajax/checkUnique',
                     type: "GET",
                     data: {
-                        username: function() {
+                        username: function () {
                             return $('#registration-form #username').val();
                         },
                     }
@@ -37,9 +31,9 @@ var Validator = (function() {
                     url: base_url + 'ajax/checkUnique',
                     type: "GET",
                     data: {
-                        email: function() {
+                        email: function () {
                             return $('#registration-form #email').val();
-                        },
+                        }
                     }
                 }
             },
@@ -57,8 +51,13 @@ var Validator = (function() {
             },
             businessName: {
                 required: {
-                    depends: function() {
-                        return $('#wholesaler').is(':checked');
+                    depends: function () {
+                        if ($('#wholesaler').length) {
+                            return $('#wholesaler').is(':checked');
+                        } else if ($('#registration-form select').val() === 'wholesaler') {
+                            return true;
+                        }
+                        return false;
                     }
                 }
 
@@ -87,7 +86,7 @@ var Validator = (function() {
             }
         },
         errorElement: 'div',
-        errorPlacement: function(error, element) {
+        errorPlacement: function (error, element) {
             if ($(element).data('bs.tooltip')) {
                 $(element).data('bs.tooltip').options.title = error.text();
                 $(element).tooltip('show');
@@ -100,15 +99,15 @@ var Validator = (function() {
                 }).tooltip('show');
             }
         },
-        success: function(label, element) {
+        success: function (label, element) {
             $(element).tooltip('destroy');
             this.unhighlight(element);
         },
-        highlight: function(element) {
+        highlight: function (element) {
             $('#registration-form #' + element.id + ' + .glyphicon').removeClass('glyphicon-ok').addClass('glyphicon-remove');
             $('#registration-form #' + element.id).parent().removeClass('has-success').addClass('has-error');
         },
-        unhighlight: function(element) {
+        unhighlight: function (element) {
             $('#registration-form #' + element.id + ' + .glyphicon').removeClass('glyphicon-remove').addClass('glyphicon-ok');
             $('#registration-form #' + element.id).parent().removeClass('has-error').addClass('has-success');
         },
@@ -116,13 +115,12 @@ var Validator = (function() {
     });
 })();
 
-$.validator.addMethod('emailCustom', function(email) {
+$.validator.addMethod('emailCustom', function (email) {
     var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return regex.test(email);
 });
 
-$.validator.addMethod('checkPassword', function(password) {
+$.validator.addMethod('checkPassword', function (password) {
     var regex = /(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$/;
-    console.log(regex);
     return regex.test(password);
 });

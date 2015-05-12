@@ -1,7 +1,9 @@
+<div class="flex-row-center styled-heading-wrap cms-heading-wrap" style="width: 470px; margin: auto; padding-left: 100px;">
+    <span class="left"></span><h1 class='center styled-heading '>Products</h1><span class="right"></span>
+</div>
+
 <div role="tabpanel" id='product-tab-panel'>
-    <div class='cms-heading-wrap'>
-        <h1>Products</h1>
-    </div>
+
     <ul class="nav nav-tabs" id="product-nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#bags" aria-controls="bags" role="tab" data-toggle="tab">Bags</a></li>
         <li role="presentation"><a href="#produce" aria-controls="produce" role="tab" data-toggle="tab">Produce</a></li>

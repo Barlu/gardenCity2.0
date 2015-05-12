@@ -3,7 +3,7 @@
 </div>
 <div id="week-wrap">
     <a href="<?php echo base_url() ?>admin/production/previous"><i class="fa fa-caret-left primary"></i></a>
-    <h2>Week <?php echo $week ?></h2>
+    <a href="<?php echo base_url() ?>admin/production"><h2 class="link">Week <?php echo $week ?></h2></a>
     <a href="<?php echo base_url() ?>admin/production/next"><i class="fa fa-caret-right primary"></i></a>
 </div>
 
@@ -17,50 +17,48 @@
             }
             ?>">
 
-    <?php echo $day['date'] . '<br/>' . $day['day'] . '<br/>-' . $day['orders']; ?>-
+                <?php echo $day['date'] . '<br/>' . $day['day'] . '<br/>-' . $day['orders']; ?>-
             </li>
         </a>
-<?php endforeach; ?>
+    <?php endforeach; ?>
 </ul>
-
-<section id="production-summary">
-    <ul class="summary-list flex-row">
-            <?php foreach ($bags as $bag): ?>
+<div class="flex-row-center col-xs-12">
+    <ul class="summary-list flex-column col-xs-2">
+        
+        <?php foreach ($bags as $bag): ?>
             <li >
-            <?php echo $bag['name'] . '<br/>-' . $bag['orders'] . '-'; ?> 
+                <?php echo $bag['name'] . '<br/>-' . $bag['orders'] . '-'; ?> 
             </li>
-<?php endforeach; ?>
+        <?php endforeach; ?>
     </ul>
-</section>
-
-<section id="watch-list-summary">
-    <ul class="summary-list flex-row">
-            <?php foreach ($quantityWatch as $quantity): ?>
+    <ul class="summary-list flex-row col-xs-8">
+        
+        <?php foreach ($quantityWatch as $quantity): ?>
             <li >
-            <?php echo $quantity['name'] . '<br/>' . $quantity['quantity'] . '<br/>-' . $quantity['count'] . '-'; ?> 
+                <?php echo $quantity['name'] . '<br/>' . $quantity['quantity'] . '<br/>-' . $quantity['count'] . '-'; ?> 
             </li>
-<?php endforeach; ?>
+        <?php endforeach; ?>
     </ul>
-</section>
+</div>
 
-<div class="flex-row-center">
-    <section id='deliveries-list' class="list-admin">
-        <ul class="nav nav-stacked ">
-                <?php foreach ($deliveries as $delivery): ?>
-                <li class="padding flex-row">
-                <?php echo $delivery['name'] . '  -' . $delivery['orders'] . '-' ?> 
-                </li>
-<?php endforeach; ?>
-        </ul>
-    </section>
-
-    <section id="produce-output">
-        <ul class="summary-list flex-row">
-                <?php foreach ($produce as $item) : ?>
+<div class="flex-row-center col-xs-12">
+    
+        <ul class="summary-list flex-row col-xs-8">
+            <?php foreach ($produce as $item) : ?>
                 <li >
-                <?php echo $item['name'] . '<br/>-' . $item['orders'] . '-'; ?> 
+                    <?php echo $item['name'] . '<br/>-' . $item['orders'] . '-'; ?> 
                 </li>
-<?php endforeach; ?>
+            <?php endforeach; ?>
+        </ul>
+   
+    <section id='deliveries-list' class="list-admin">
+        <ul class="nav nav-stacked">
+            <?php foreach ($deliveries as $delivery): ?>
+                <li class="padding flex-row">
+                    <?php echo $delivery['name'] . '  -' . $delivery['orders'] . '-' ?> 
+                </li>
+            <?php endforeach; ?>
         </ul>
     </section>
 </div>
+

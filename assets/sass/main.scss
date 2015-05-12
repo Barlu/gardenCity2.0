@@ -53,21 +53,19 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 2.2em;
     }
     @include mobile {
-        font-size: 1.8em;
+        font-size: 1.6em;
     }
 }
 
 .h2 {
     font-size: 2.4em;
     @include tablet {
-        font-size: 2.0em;
+        font-size: 1.8em;
     }
     @include mobile {
-        font-size: 1.7em;
+        font-size: 1.4em;
     }
 }
-
-
 
 .padding{
     padding: 15px;
@@ -82,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .padding-large {
-    padding: 5%;
+    padding: 4%;
 }
 
 .padding-top-bottom-large {
@@ -104,6 +102,14 @@ h1, h2, h3, h4, h5, h6 {
     @include mobile {
         font-size: 2.4em;
     }
+}
+
+.cms-nav .logo {
+    font-size: 2.8em;
+}
+
+#login-cart-wrap .logo {
+    display: none;
 }
 
 strong, th {
@@ -273,7 +279,6 @@ a {
     height: 2px;
     background: $primary_color;
     background: linear-gradient(to left, $primary-color, transparent 100%);
-
 }
 .styled-heading-wrap span.right {
     flex-grow: 1;
@@ -282,7 +287,10 @@ a {
     height: 2px;
     background: $primary_color;
     background: linear-gradient(to right, $primary-color, transparent 100%);
+}
 
+.styled-heading-wrap.cms-heading-wrap span.left, .styled-heading-wrap.cms-heading-wrap span.right {
+    width: 100%;
 }
 
 /*-----------------------FANCY LOOKING IMAGE DISPLAY*/
@@ -529,7 +537,22 @@ nav#nav-2 {
     max-width: none;
     position: fixed;
     transition: 0.3s;
-    z-index: 10;
+    z-index: 3;
+    & .logo {
+        display: inline-block;
+        padding-left: 7%;
+        font-size: 3em;
+        @include mobile {
+            font-size: 2.4em;
+        }
+        @include tablet {
+            font-size: 2.6em;
+        }
+    }
+}
+
+#login-cart-wrap.affix h1.logo {
+    
 }
 
 #login {
@@ -683,7 +706,7 @@ nav#nav-2 {
 p {
     font-size: 1.2em;
     @include mobile {
-        font-size: 1.1em;
+        font-size: 1em;
     }
 }
 
@@ -741,10 +764,13 @@ a.link-article {
 
 .heading {
     position: absolute;
-    right: 100px;
+    right: 10%;
     bottom: 30px;
     font-size: 4em;
     color: #fff;
+    @include mobile {
+        font-size: 2.8em;
+    }
 }
 
 .body-text {
@@ -989,7 +1015,6 @@ input[type='file'] {
 
 .cms-heading-wrap {
     display: block;
-    width: 100%;
     padding: 40px 0 40px 0;
     text-align: center;
 }
@@ -1082,7 +1107,7 @@ div.cms-heading-wrap h1 {
 /*heading hover effect*/
 .accordian.cms-nav h3:hover {
     text-shadow: 0 0 4px rgba(255, 255, 255, 0.7);
-
+    color: #fff;
 }
 
 
@@ -1093,7 +1118,6 @@ div.cms-heading-wrap h1 {
 
 .accordian.cms-nav li.active {
     background-color: #5d4042;
-
 }
 
 .accordian.cms-nav li.active h3 {
@@ -1101,7 +1125,7 @@ div.cms-heading-wrap h1 {
 
 }
 .accordian.product-nav li.active h3 {
-    color: #0092b2;
+    color: $secondary_color;
 
 }
 
@@ -1136,7 +1160,7 @@ div.cms-heading-wrap h1 {
 /*hover effect on links*/
 .accordian.cms-nav ul ul li a:hover {
     background-color: $primary_color;
-    border-left: 5px solid #0092b2;
+    border-left: 5px solid $secondary_color;
 }
 
 /*Lets hide the non active LIs by default*/
@@ -1152,7 +1176,7 @@ div.cms-heading-wrap h1 {
 /*CONTENT*/
 .list-admin {
     border: $primary_color solid 1px;
-    margin: 30px;
+    margin: 30px 0 30px 0;
     min-width: 200px;
 }
 
@@ -1162,8 +1186,6 @@ div.cms-heading-wrap h1 {
 
 .content-admin {
     margin: 30px 0 30px 0;
-    max-width: 700px;
-    width: 50%;
 }
 
 #produce-list li {
@@ -1325,8 +1347,9 @@ ul#day-list a{
 
 .summary-list{
     padding: 0;
-    margin: 30px;
+    margin: 30px 15px 30px 15px;
     border: #a2c240 solid 1px;
+    
 }
 
 .summary-list li{
@@ -1456,6 +1479,8 @@ ul#day-list a{
 
 
 /*CUSTOMERS*/
-#customer-form-view {
-
+#customer-list {
+    max-width: 800px;
+    max-height: 500px;
+    overflow: auto;
 }

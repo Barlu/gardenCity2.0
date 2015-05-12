@@ -1,12 +1,12 @@
-<div class='cms-heading-wrap'>
-    <h1>Customers</h1>
+<div class="flex-row-center styled-heading-wrap cms-heading-wrap">
+    <span class="left"></span><h1 class='center styled-heading '>Customers</h1><span class="right"></span>
 </div>
-<div class='flex-row-center'>
-    <section class='list-admin col-xs-2' id="account-activations">
+<div class='col-xs-10'>
+    <section class='list-admin col-xs-3 ' id="account-activations">
         <h1 class='h1'>Account Activations</h1>
         <ul class="nav nav-stacked">      
             <li>
-                <a data-toggle="modal" data-target='#registration'>Create Account</a>
+                <a data-toggle="modal" class="link" data-target='#registration'>Create Account</a>
             </li>
             <?php
             foreach ($activations as $customer) {
@@ -17,16 +17,16 @@
         </ul>
         <div class='clearfix'></div>
     </section>
-    <section id="customer-form-view" class="content-admin">
+    <section id="customer-form-view" class="col-xs-8 content-admin">
         <div class='tab-content'>
             <div class="tab-pane active">
-                <p class="primary">Please select a customer to see their details.</p>
+                <p class="primary text-center">Please select a customer to see their details.</p>
             </div>
         </div>
         <div class='clearfix'></div>
     </section>
 </div>
-<section class="col-xs-12 padding-large">
+<section class="col-xs-10">
     <table class='table table-hover ' id="customer-list">
         <tr>
             <th>Name</th><th>Phone</th><th>Account Type</th><th>Host</th><th>Balance</th>
@@ -52,7 +52,7 @@
                 <div class="modal-body row">
                     <div class='form-group col-xs-6'>
                         <label for="firstName" class="control-label sr-only">First Name:</label>
-                        <input type="text" name="firstName" class="form-control input-md" placeholder="First Name"/>
+                        <input type="text" name="firstName" id="firstName" class="form-control input-md" placeholder="First Name"/>
                     </div>
                     <div class='form-group col-xs-6'>
                         <label for="lastName" class="control-label sr-only">Last Name:</label>
@@ -83,6 +83,22 @@
                         <input type="password" name="passwordRepeat" id="passwordRepeat" class="form-control input-md" onblur="Validator.element(this)" placeholder="Confirm Password" data-toggle="tooltip"/>
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     </div>
+                    <div class="form-group col-xs-5 ">
+                        <label for="accountType" class="control-label sr-only">Account Type: &nbsp;</label>
+                        <?php
+                        echo form_dropdown('accountType', [
+                            'public' => 'Public',
+                            'wholesaler' => 'Wholesaler',
+                            'staff' => 'Staff',
+                            'admin' => 'Admin'
+                                ], '', 'class="form-control input-md"');
+                        ?>
+                    </div>
+                    <div class='form-group col-xs-7 has-feedback'>
+                        <label for="businessName" class="control-label sr-only">Business Name:</label>
+                        <input type="text" name="businessName" id="businessName" onblur="Validator.element(this)" placeholder="Business Name" class="form-control input-md"/>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    </div>
                     <div class='clearfix'></div>
                 </div>
                 <div class="modal-footer clearfix">
@@ -95,15 +111,30 @@
 </div>
 
 <script>
-   $('tr:not(:first)').on('click', function(){
+    //Handles table row selections by adding/removing classes
+    //Also linked in with the customers needing activation
+    $('tr:not(:first)').on('click', function () {
         $('tr:not(:first)').removeClass('selected');
         $(this).addClass('selected');
         $('#account-activations li').removeClass('active');
-        $('#account-activations').find('#'+$(this).attr('id')).parent().addClass('active');
-   });
-   
-   $('#account-activations li a').on('click', function(){
+        $('#account-activations').find('#' + $(this).attr('id')).parent().addClass('active');
+    });
+
+    $('#account-activations li a').on('click', function () {
         $('#customer-list tr').removeClass('selected');
-        $('#customer-list #'+$(this).attr('id')).addClass('selected');
-   });
+        $('#customer-list #' + $(this).attr('id')).addClass('selected');
+    });
+    
+    //Handles hide/showing of business name input during account creation
+    $('#registration #businessName').hide();
+    $('#registration select').on('change', function () {
+        if ($(this).val() === 'wholesaler') {
+            $('#registration #businessName').show();
+        } else {
+            $('#registration #businessName').hide();
+            $('#registration #businessName').tooltip('destroy');
+            $('#registration #businessName + .glyphicon').removeClass('glyphicon-remove');
+            $('#registration #businessName + .glyphicon').parent().removeClass('has-error');
+        }
+    })
 </script>

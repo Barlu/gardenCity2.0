@@ -6,6 +6,10 @@ if (!defined('BASEPATH'))
 class Admin extends CI_Controller {
 
     public function production($direction = null, $selected = null) {
+        if($this->session->userdata('usertype') !== 'admin'){
+            exit('You do not have authority to access this area');
+        }
+        
         $em = $this->doctrine->em;
 
 //Create criteria object
@@ -37,8 +41,8 @@ class Admin extends CI_Controller {
         }
 
 //Get timestamps to be used in selecting orders
-        $week_timestamps = $this->getWeekTimestamps($date);
-        $days = $this->getDays($date);
+        $week_timestamps = $this->_getWeekTimestamps($date);
+        $days = $this->_getDays($date);
 
 //Create data array for pupulating daily information/selection
         foreach ($days as $day) {
@@ -47,7 +51,7 @@ class Admin extends CI_Controller {
             $dailyOrders = $em->getRepository('Entity\Order')->matching($criteria);
             $data['days'][] = ['day' => $day['day'], 'date' => $day['date'], 'start' => $day['start'], 'end' => $day['end'], 'orders' => count($dailyOrders)];
         }
-        $data['week'] = $this->getWeek($date);
+        $data['week'] = $this->_getWeek($date);
         $data['month'] = $date->format('F');
 
 //Get all product names for summary and all orders for the week or day
@@ -133,6 +137,9 @@ class Admin extends CI_Controller {
     }
 
     public function deliveries() {
+        if($this->session->userdata('usertype') !== 'admin'){
+            exit('You do not have authority to access this area');
+        }
         $this->load->library('doctrine');
         $this->load->helper('form');
         $em = $this->doctrine->em;
@@ -174,7 +181,9 @@ class Admin extends CI_Controller {
     }
 
     public function products() {
-        $this->load->library('doctrine');
+        if($this->session->userdata('usertype') !== 'admin'){
+            exit('You do not have authority to access this area');
+        }
         $this->load->library('upload');
         $this->load->helper('form');
         $this->template->set_title('Products');
@@ -233,6 +242,9 @@ class Admin extends CI_Controller {
     }
 
     public function newsletters() {
+        if($this->session->userdata('usertype') !== 'admin'){
+            exit('You do not have authority to access this area');
+        }
         $this->load->helper('form');
 
         $this->template->set_title('Newsletters');
@@ -299,7 +311,10 @@ class Admin extends CI_Controller {
     }
 
     public function recipes() {
-        $this->load->library('doctrine');
+        if($this->session->userdata('usertype') !== 'admin'){
+            exit('You do not have authority to access this area');
+        }
+        
         $this->template->set_title('Recipes');
         $this->template->set_layout('admin');
         $em = $this->doctrine->em;
@@ -360,6 +375,11 @@ class Admin extends CI_Controller {
     }
 
     public function customers() {
+        if($this->session->userdata('usertype') !== 'admin'){
+            exit('You do not have authority to access this area');
+        }
+        $this->load->helper('form');
+        
         $em = $this->doctrine->em;
 
         $this->template->set_title('Recipes');
@@ -371,6 +391,9 @@ class Admin extends CI_Controller {
     }
 
     public function images() {
+        if($this->session->userdata('usertype') !== 'admin'){
+            exit('You do not have authority to access this area');
+        }
         $this->load->library('doctrine');
         $this->template->set_title('Images');
         $this->template->set_layout('admin');
@@ -408,21 +431,21 @@ class Admin extends CI_Controller {
     }
 
     //Found on stack exchange
-    function getWeek($date) {
+    function _getWeek($date) {
         $first_of_month = new DateTime($date->format('Y/m/1'));
         $day_of_first = $first_of_month->format('N');
         $day_of_month = $date->format('j');
         return floor(($day_of_first + $day_of_month) / 7);
     }
 
-    private function getWeekTimestamps($date) {
+    private function _getWeekTimestamps($date) {
 
         $data['week_beginning'] = strtotime('last Monday', strtotime('tomorrow', $date->getTimestamp()));
         $data['week_ending'] = strtotime('next Sunday', strtotime('yesterday', $date->getTimestamp())) + 86399;
         return $data;
     }
 
-    private function getDays($date) {
+    private function _getDays($date) {
         $data = [];
         for ($i = 1; $i <= 7; $i++) {
             $date->setISODate($this->session->userdata('production_year'), $this->session->userdata('production_week'), $i);

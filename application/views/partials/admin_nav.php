@@ -1,4 +1,5 @@
 <div class="accordian cms-nav">
+    <h1 class="logo text-center padding"><a href="<?php echo base_url() ?>">Garden <br/>City 2.0</a></h1>
     <ul>
         <li id='production-nav' class='active'>
             
