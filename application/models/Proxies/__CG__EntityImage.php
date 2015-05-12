@@ -265,15 +265,4 @@ class Image extends \Entity\Image implements \Doctrine\ORM\Proxy\Proxy
         return parent::setGallery($gallery);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public function toArray()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'toArray', array());
-
-        return parent::toArray();
-    }
-
 }

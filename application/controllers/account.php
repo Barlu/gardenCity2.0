@@ -32,8 +32,7 @@ class Account extends CI_Controller {
         $em = $this->doctrine->em;
 
         $this->template->set_title('Account');
-        $this->template->set_summary('Summary');
-        $this->template->set_description('Description');
+        $this->template->set_summary('Modify your account details, check orders, cancel subscriptions');
         $this->template->set_layout('inner');
 
         $data['user'] = $em->find('Entity\User', $this->session->userdata('userid'));

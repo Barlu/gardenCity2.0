@@ -1,7 +1,7 @@
 <div class="modal fade" id="gallery-modal-<?php echo $gallery->getId(); ?>" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form  action="<?php echo base_url(); ?>index.php/admin/images" method="post" >
+            <form  action="<?php echo base_url(); ?>admin/images" method="post" >
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title"><?php echo $gallery->getName() ?></h4>

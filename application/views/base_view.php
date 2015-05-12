@@ -12,6 +12,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-timepicker.min.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-tagsinput.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/blueimp-gallery.min.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/slideme.css" />
         <link href="<?php echo base_url(); ?>assets/css/dropzone.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/main.css" />
@@ -22,7 +23,7 @@
         <?php echo $body; ?>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.slideme2.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/unslider.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.blueimp-gallery.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.steps.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap-timepicker.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap3-typeahead.min.js"></script>

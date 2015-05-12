@@ -1,6 +1,10 @@
 <?php
 
 namespace Entity;
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -8,7 +12,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @Entity
  * @Table(name="gallerys")
  */
-class Gallery extends Steven{
+class Gallery {
     
     /**
      * @Id

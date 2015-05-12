@@ -22,7 +22,7 @@
         <div class="tab-content inner"></div>
 
         <div class="tab-pane fade" id="new">
-            <form  action="<?php echo base_url(); ?>index.php/admin/images" method="post" >
+            <form  action="<?php echo base_url(); ?>admin/images" method="post" >
                 <div class='form-group col-xs-12'>
                     <label for='name' class='control-label sr-only'></label>
                     <input name='name' type="text" class="form-control input-lg" placeholder='Gallery Name'>
@@ -42,7 +42,7 @@
                 $this->load->view('partials/content/images/banner-gallery_pane', $banners);
                 ?>
             </ul>
-            <form  action="<?php echo base_url(); ?>index.php/dropzone/upload/banner/banner"  class="dropzone" id="banner-dropzone"></form>
+            <form  action="<?php echo base_url(); ?>dropzone/upload/banner/banner"  class="dropzone" id="banner-dropzone"></form>
         </div>
     </div>
     <div class='clearfix'></div>

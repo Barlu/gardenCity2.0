@@ -6,19 +6,22 @@ if (!defined('BASEPATH'))
 class Our_Food extends CI_Controller {
 
     public function index() {
-        $this->load->library('template');
         $this->load->helper('form');
         $this->load->helper('text');
         
         $criteria = new \Doctrine\Common\Collections\Criteria();
         
         $em = $this->doctrine->em;
+        if(!$this->session->set_userdata('usertype')){
+            $this->session->set_userdata('usertype', 'public');
+        }
         
-        $this->session->set_userdata('usertype', 'public');
         $this->template->set_layout('inner');
         $this->template->set_title('Our Food');
-        $this->template->set_summary('Home of the homestay');
-        $this->template->set_description('Description');
+        $this->template->set_summary('Come check out our hand crafted recipes and food bags');
+        $this->template->set_description('Find out about our products, create an order and check out our recipies that are given to us weekly by a friendly local');
+        
+        //Get latest recipes
         $criteria->orderBy(['dateAdded' => 'DESC'])
                 ->getMaxResults(4);
         $data['recipes'] = $em->getRepository('Entity\Recipe')->matching($criteria);
@@ -30,14 +33,17 @@ class Our_Food extends CI_Controller {
     }
     
     public function order($edit = false){
+        
+        if(!$edit && $this->cart->total() === 0){
+            redirect(base_url() . 'our_food');
+        }
+        
         $this->load->helper('form');
 
         $em = $this->doctrine->em;
         $data = [];
 
         $this->template->set_title('Order');
-        $this->template->set_summary('Summary');
-        $this->template->set_description('Description');
         $this->template->set_layout('inner');
 
         $data['bags'] = $em->getRepository('Entity\Bag')->findAll();
@@ -94,8 +100,8 @@ class Our_Food extends CI_Controller {
         $data = [];
 
         $this->template->set_title('Recipes');
-        $this->template->set_summary('Summary');
-        $this->template->set_description('Description');
+        $this->template->set_summary('Hand crafted recipes updated weekly and provided by a community volunteer');
+        $this->template->set_description('This is where you can find all the recipes we\'ve accumulated courtesy of our friendly volunteer. All of these recipes are based on produce we provide as part of our food bags');
         $this->template->set_layout('inner');
        
         $data['selectedRecipe'] = $id;

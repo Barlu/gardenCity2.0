@@ -2,6 +2,9 @@
 
 namespace Entity;
 
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
 /**
  * Image class
  * Stores all uploaded images
@@ -9,7 +12,7 @@ namespace Entity;
  * @Entity
  * @Table(name="images")
  */
-class Image extends Steven{
+class Image {
 
     /**
      * @Id

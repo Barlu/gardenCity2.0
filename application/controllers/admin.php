@@ -1,8 +1,11 @@
 <?php
 
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
 class Admin extends CI_Controller {
 
-    public function production($direction = null) {
+    public function production($direction = null, $selected = null) {
         $em = $this->doctrine->em;
 
 //Create criteria object
@@ -42,15 +45,22 @@ class Admin extends CI_Controller {
             $criteria->where($criteria->expr()->gte('nextDelivery', $day['start']))
                     ->andWhere($criteria->expr()->lte('nextDelivery', $day['end']));
             $dailyOrders = $em->getRepository('Entity\Order')->matching($criteria);
-            $data['days'][] = ['day' => $day['day'], 'date' => $day['date'], 'orders' => count($dailyOrders)];
+            $data['days'][] = ['day' => $day['day'], 'date' => $day['date'], 'start' => $day['start'], 'end' => $day['end'], 'orders' => count($dailyOrders)];
         }
         $data['week'] = $this->getWeek($date);
         $data['month'] = $date->format('F');
 
-//Get all product names for summary and all orders for the week
-        $criteria->where($criteria->expr()->gte('nextDelivery', $week_timestamps['week_beginning']))
-                ->andWhere($criteria->expr()->lte('nextDelivery', $week_timestamps['week_ending']));
-        $weeklyOrders = $em->getRepository('Entity\Order')->matching($criteria);
+//Get all product names for summary and all orders for the week or day
+        $data['selected'] = $selected;
+        if ($direction === 'day') {
+            $timestamps = explode('-', $selected);
+            $criteria->where($criteria->expr()->gte('nextDelivery', $timestamps[0]))
+                    ->andWhere($criteria->expr()->lte('nextDelivery', $timestamps[1]));
+        } else {
+            $criteria->where($criteria->expr()->gte('nextDelivery', $week_timestamps['week_beginning']))
+                    ->andWhere($criteria->expr()->lte('nextDelivery', $week_timestamps['week_ending']));
+        }
+        $orders = $em->getRepository('Entity\Order')->matching($criteria);
         $products = $em->getRepository('Entity\Product')->findAll();
 
 //Work out how many orders include a given bag or produce type
@@ -60,7 +70,7 @@ class Admin extends CI_Controller {
         foreach ($products as $product) {
             $orderCount = 0;
             if ($product->getType() === 'Bag') {
-                foreach ($weeklyOrders as $order) {
+                foreach ($orders as $order) {
                     foreach ($order->getLineItems() as $lineItem) {
                         if ($lineItem->getProduct() === $product) {
                             $orderCount += 1;
@@ -69,7 +79,7 @@ class Admin extends CI_Controller {
                 }
                 $data['bags'][] = ['name' => $product->getName(), 'orders' => $orderCount];
             } else if ($product->getType() === 'Produce') {
-                foreach ($weeklyOrders as $order) {
+                foreach ($orders as $order) {
                     foreach ($order->getLineItems() as $lineItem) {
                         if ($lineItem->getProduct() === $product) {
                             //If quantity type is to be watched exclude from generic calculation
@@ -110,7 +120,7 @@ class Admin extends CI_Controller {
         foreach ($deliveryPoints as $deliveryPoint) {
             $count = 0;
             foreach ($deliveryPoint->getOrders() as $deliveryOrder) {
-                foreach ($weeklyOrders as $order) {
+                foreach ($orders as $order) {
                     if ($deliveryOrder === $order) {
                         $count += 1;
                     }

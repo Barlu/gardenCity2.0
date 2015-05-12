@@ -1,4 +1,6 @@
 <?php
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 
 class Ajax extends CI_Controller {
 
@@ -529,11 +531,11 @@ class Ajax extends CI_Controller {
             $user->setUsername(strtolower($this->input->post('username')));
             $user->setPhone($this->input->post('phone'));
             $user->setEmail($this->input->post('email'));
-            
-            if($user->getType() === 'wholesaler'){
+
+            if ($user->getType() === 'wholesaler') {
                 $user->setBusinessName($this->input->post('businessName'));
             }
-            
+
             if ($this->input->post('password')) {
                 if ($this->input->post('password') === $this->input->post('passwordRepeat')) {
                     $user->setPassword($this->encrypt->encode($this->input->post('password')));

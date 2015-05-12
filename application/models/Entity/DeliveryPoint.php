@@ -1,13 +1,17 @@
 <?php
 
 namespace Entity;
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @Entity
  * @Table(name="deliveryPoints")
  */
-class DeliveryPoint extends Steven {
+class DeliveryPoint {
     
     /**
      * @Id

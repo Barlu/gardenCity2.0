@@ -2,6 +2,9 @@
 
 namespace Entity;
 
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
 /**
  * @Entity
  * @Table(name="lineItems")

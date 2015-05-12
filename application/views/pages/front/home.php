@@ -11,7 +11,7 @@
                         Fusce sit amet turpis tempus, tempor massa eget, facilisis urna.  Donec tempus bibendum quam non facilisis. Fusce semper eros id orci tempus mattis. Morbi mollis condimentum semper. Fusce molestie non est accumsan consectetur. Praesent pretium nulla ac tempus ullamcorper. Fusce sit amet turpis tempus, tempor massa eget, facilisis urna. Aenean pulvinar ex in tortor pellentesque, ut tincidunt tellus porta. Aenean pulvinar ex in tortor pellentesque, ut tincidunt tellus porta.usce lacus nunc, egestas in fermentum a, finibus eget metus. Suspendisse potenti.
                     </p>
 
-                    <a href="<?php echo base_url(); ?>index.php/our_story">
+                    <a href="<?php echo base_url(); ?>our_story">
                         <div class="primary-button">
                             Learn More &nbsp; <i class="fa fa-caret-right"></i>
                         </div>
@@ -23,7 +23,7 @@
             <div class="divider"></div>
             <div class="padding-top-bottom-large" id="tour">
                 <article id='foodbags' class="padding image-fade small-article col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0">
-                    <a href="<?php echo base_url(); ?>index.php/our_food" class="link-article">
+                    <a href="<?php echo base_url(); ?>our_food" class="link-article">
                         <div class="black-background box-shadow">
                             <div class="image-border flex-column">
                                 <h1>Food Bags</h1>
@@ -42,7 +42,7 @@
                 </article>
 
                 <article id='community' class="padding image-fade small-article col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0">
-                    <a href="<?php echo base_url(); ?>index.php/our_community" class="link-article">
+                    <a href="<?php echo base_url(); ?>our_community" class="link-article">
                         <div class="black-background box-shadow">
                             <div class="image-border flex-column">
                                 <h1>Community</h1>
@@ -58,7 +58,7 @@
                 </article>
 
                 <article id='recipes' class="padding image-fade small-article col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0">
-                    <a href="<?php echo base_url(); ?>index.php/our_food/recipes" class="link-article">
+                    <a href="<?php echo base_url(); ?>our_food/recipes" class="link-article">
                         <div class="black-background box-shadow">
                             <div class="image-border flex-column">
                                 <h1>Recipes</h1>
@@ -84,7 +84,7 @@
                         Fusce sit amet turpis tempus, tempor massa eget, facilisis urna.  Donec tempus bibendum quam non facilisis. Fusce semper eros id orci tempus mattis. Morbi mollis condimentum semper. Fusce molestie non est accumsan consectetur. Praesent pretium nulla ac tempus ullamcorper. Fusce sit amet turpis tempus, tempor massa eget, facilisis urna. Aenean pulvinar ex in tortor pellentesque, ut tincidunt tellus porta. Aenean pulvinar ex in tortor pellentesque, ut tincidunt tellus porta.usce lacus nunc, egestas in fermentum a, finibus eget metus. Suspendisse potenti.
                     </p>
 
-                    <a href="<?php echo base_url(); ?>index.php/our_food">
+                    <a href="<?php echo base_url(); ?>our_food">
                         <div class="primary-button">
                             Get Started!&nbsp; <i class="fa fa-caret-right"></i>
                         </div>

@@ -1,4 +1,4 @@
-<form id="delivery-options" action="<?php echo base_url() ?>index.php/order">
+<form id="delivery-options" action="<?php echo base_url() ?>order">
     <div class="form-group col-sm-6 col-xs-12">
         <div class="row">
             <h1 class="h2">Delivery Options</h1>

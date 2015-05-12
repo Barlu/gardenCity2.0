@@ -55,7 +55,7 @@
                 <?php foreach ($recipes as $recipe): ?>
                     <?php if ($count === 0): ?>
                         <article id='main-recipe' class="padding image-fade col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-12">
-                            <a href="<?php echo base_url(); ?>index.php/our_food/recipes/<?php echo $recipe->getId(); ?>" class="link-article">
+                            <a href="<?php echo base_url(); ?>our_food/recipes/<?php echo $recipe->getId(); ?>" class="link-article">
                                 <div class="col-md-6 row">
                                     <div class="black-background box-shadow ">
                                         <div class="image-border flex-column">
@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="col-md-6 row">
                                     <p >
-                                        <?php echo character_limiter($recipe->getDescription(), 220); ?>
+                                        <?php echo character_limiter($recipe->getDescription(), 500); ?>
                                     </p>
                                     <p class="pull-right primary" >read more <i class="fa fa-long-arrow-right"></i></p>
                                 </div>

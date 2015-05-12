@@ -1,5 +1,3 @@
-
-
 <div role="tabpanel" id='product-tab-panel'>
     <div class='cms-heading-wrap'>
         <h1>Products</h1>

@@ -1,4 +1,6 @@
 <?php
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 
 /**
  * As this php version does not support arrays to be defined as constants this class will 

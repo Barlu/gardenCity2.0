@@ -59,7 +59,7 @@
 </div>
 
 <script>
-    var base_url = window.location.origin + '/gardenCity2/index.php/';
+    var base_url = window.location.origin + '/gardenCity2/';
     var CustomerValidator = (function () {
         return $('#customer-form-<?php echo $customer->getId() ?>').validate({
             debug: true,

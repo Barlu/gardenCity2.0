@@ -23,12 +23,14 @@ class Home extends CI_Controller {
     public function index() {
         $em = $this->doctrine->em;
         $this->load->library('encrypt');
+        
         $this->template->set_title('Home');
-        $this->template->set_summary('Summary');
-        $this->template->set_description('Description');
-        $schemaTool = new \Doctrine\ORM\Tools\SchemaTool($em);
-        $classes = $em->getMetadataFactory()->getAllMetadata();
-        $schemaTool->updateSchema($classes);
+        $this->template->set_summary('Your one stop shop for fresh, organic vegetables and produce in Christchurch delivered straight to your door');
+        $this->template->set_description('Welcome to Garden City 2.0, your one stop shop for fresh, organic vegetables and produce in Christchurch, sourced locally and delivered straight to your door');
+        
+//        $schemaTool = new \Doctrine\ORM\Tools\SchemaTool($em);
+//        $classes = $em->getMetadataFactory()->getAllMetadata();
+//        $schemaTool->updateSchema($classes);
         
         $data['banners'] = $em->getRepository('Entity\Banner')->findAll();
         $this->template->load_view('front/home', $data);

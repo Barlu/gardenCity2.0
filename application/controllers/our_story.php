@@ -21,15 +21,16 @@ class Our_Story extends CI_Controller {
      * @see http://codeigniter.com/user_guide/general/urls.html
      */
     public function index() {
-        $this->load->library('template');
-
+        $em = $this->doctrine->em;
 
         $this->template->set_title('Our Story');
-        $this->template->set_summary('Summary');
-        $this->template->set_description('Description');
+        $this->template->set_summary('Learn about us and our journy to bring fresh local produce to the city of Christchurch');
+        $this->template->set_description('Here you can read about how we got to where we are today, why and where we\'re going. You\'ll also find plenty of images in our gallery');
         $this->template->set_layout('inner');
-
-        $this->template->load_view('front/our_story');
+        
+        $data['galleries'] = $em->getRepository('Entity\Gallery')->findAll();
+        
+        $this->template->load_view('front/our_story', $data);
     }
 }
 

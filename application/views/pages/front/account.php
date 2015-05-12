@@ -41,7 +41,7 @@
                     <section class="col-sm-12 col-md-6">
                         <h1 class="h1">Delivery Details</h1>
                         <?php if ($user->getOrder()): ?>
-                            <a href="<?php echo base_url() ?>index.php/our_food/order/edit" class="pull-right">Edit Order</a>
+                            <a href="<?php echo base_url() ?>our_food/order/edit" class="pull-right">Edit Order</a>
                             <table class="table">
                                 <tr>
                                     <th>
@@ -90,7 +90,7 @@
 
                             </table>
                         <?php else: ?>
-                            <p> Currently no orders, to place an order please go <a href="<?php echo base_url() ?>index.php/our_food">here</a></p>
+                            <p> Currently no orders, to place an order please go <a href="<?php echo base_url() ?>our_food">here</a></p>
                         <?php endif; ?>
                     </section>
                 </div>
@@ -129,7 +129,7 @@
                     }
                     ?>
                 <?php else: ?>
-                    <p> Currently no orders, to place an order please go <a href="<?php echo base_url() ?>index.php/our_food">here</a></p>
+                    <p> Currently no orders, to place an order please go <a href="<?php echo base_url() ?>our_food">here</a></p>
                 <?php endif; ?>
             </section>
 

@@ -10,7 +10,7 @@
         
             <h2 class="h2 col-xs-12 col-md-7"><?php echo $bag->getName() ?><span class="pull-right">$<?php echo $quantities[0]['price'] ?></span></h2>
             <p class="product-description"><?php echo $bag->getDescription() ?></p>
-            <a href="<?php echo base_url() ?>index.php/our_food/order"  onclick="addToCart($(this).closest('form'))" class="primary-button">
+            <a href="<?php echo base_url() ?>order"  onclick="addToCart($(this).closest('form'))" class="primary-button">
                     Place Order &nbsp; <i class="fa fa-caret-right"></i>
             </a>
         

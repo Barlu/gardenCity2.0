@@ -1,6 +1,10 @@
 <?php
 
 namespace Entity;
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
 use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @Entity

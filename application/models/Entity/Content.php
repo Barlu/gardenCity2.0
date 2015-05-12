@@ -2,6 +2,9 @@
 
 namespace Entity;
 
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
 /**
  * Content Class
  * Facilitates recipes and newsletters
@@ -12,7 +15,7 @@ namespace Entity;
  * @DiscriminatorColumn(name="type", type="string")
  * @DiscriminatorMap({"recipe" = "Recipe", "newsletter" = "Newsletter"})
  */
-class Content extends Steven {
+class Content {
 
     /**
      * @Id

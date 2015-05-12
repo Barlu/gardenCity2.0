@@ -12,5 +12,5 @@
         }
         ?>
     </ul>
-        <form action = "<?php echo base_url(); ?>index.php/dropzone/upload/<?php echo $gallery->getId() ?>" class = "dropzone" id='dropzone-gallery-<?php echo $gallery->getId() ?>'></form>
+        <form action = "<?php echo base_url(); ?>dropzone/upload/<?php echo $gallery->getId() ?>" class = "dropzone" id='dropzone-gallery-<?php echo $gallery->getId() ?>'></form>
 </div>

@@ -26,12 +26,9 @@ class Our_Community extends CI_Controller {
         
         $this->load->library('template');
         $this->template->set_title('Our Community');
-        $this->template->set_summary('Summary');
-        $this->template->set_description('Description');
+        $this->template->set_summary('Monthly newsletter archive showcasing whats going on with us and our community');
+        $this->template->set_description('This is where we keep all our monthly newsletter in one place. We also email these out to all our customers so if you\'d like to start recieving them just sign up');
         $this->template->set_layout('inner');
-        
-        
-        
         
         $this->template->load_view('front/our_community');
     }
