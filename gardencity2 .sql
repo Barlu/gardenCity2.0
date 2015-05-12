@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2015 at 02:48 PM
+-- Generation Time: May 13, 2015 at 12:02 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -29,6 +29,13 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `admins` (
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`) VALUES
+(20);
 
 -- --------------------------------------------------------
 
@@ -61,15 +68,17 @@ CREATE TABLE IF NOT EXISTS `banner` (
   `heading` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `caption` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `link` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=56 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=67 ;
 
 --
 -- Dumping data for table `banner`
 --
 
 INSERT INTO `banner` (`id`, `image_id`, `heading`, `caption`, `link`) VALUES
-(54, 122, NULL, NULL, NULL),
-(55, 123, NULL, NULL, NULL);
+(54, 122, 'Christmas', 'Lorem ipsum dolor sit amet.', ''),
+(62, 145, NULL, NULL, NULL),
+(63, 146, NULL, NULL, NULL),
+(66, 149, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -90,7 +99,9 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('4d97ca42b850fc453ee7de7537dbc2ca', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36', 1430793905, 'a:6:{s:9:"user_data";s:0:"";s:8:"usertype";s:6:"public";s:15:"production_week";s:2:"20";s:15:"production_year";s:4:"2015";s:6:"userid";i:8;s:13:"cart_contents";a:5:{s:32:"3f6a7b4cef2eed68efe918d8ba04b2c0";a:7:{s:5:"rowid";s:32:"3f6a7b4cef2eed68efe918d8ba04b2c0";s:2:"id";i:15;s:3:"qty";s:1:"1";s:5:"price";s:2:"30";s:4:"name";s:6:"Medium";s:7:"options";a:2:{s:4:"type";s:3:"Bag";s:13:"quantity-type";i:13;}s:8:"subtotal";i:30;}s:32:"a03243e2bdeb177c3f106618d7c112bc";a:7:{s:5:"rowid";s:32:"a03243e2bdeb177c3f106618d7c112bc";s:2:"id";i:18;s:3:"qty";s:1:"1";s:5:"price";s:3:"1.3";s:4:"name";s:7:"Bananas";s:7:"options";a:2:{s:4:"type";s:7:"Produce";s:13:"quantity-type";i:10;}s:8:"subtotal";d:1.3000000000000000444089209850062616169452667236328125;}s:32:"c427e59049ed53acce79c1470f280bbc";a:7:{s:5:"rowid";s:32:"c427e59049ed53acce79c1470f280bbc";s:2:"id";i:17;s:3:"qty";s:1:"7";s:5:"price";s:3:"1.2";s:4:"name";s:6:"Apples";s:7:"options";a:2:{s:4:"type";s:7:"Produce";s:13:"quantity-type";i:8;}s:8:"subtotal";d:8.4000000000000003552713678800500929355621337890625;}s:11:"total_items";i:9;s:10:"cart_total";d:39.7000000000000028421709430404007434844970703125;}}');
+('1ad486bd03a1b41e034f684b0c7b44fa', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36', 1431429947, 'a:4:{s:8:"usertype";s:5:"admin";s:15:"production_week";s:2:"14";s:15:"production_year";s:4:"2015";s:6:"userid";i:20;}'),
+('431f2c7dd57e8093b983cd6c5e7628fa', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36', 1431431665, 'a:1:{s:8:"usertype";s:6:"public";}'),
+('ce0c12b008d5f1397ddf2df5b612fdee', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36', 1431429959, '');
 
 -- --------------------------------------------------------
 
@@ -106,19 +117,20 @@ CREATE TABLE IF NOT EXISTS `content` (
   `file` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `dateAdded` bigint(20) NOT NULL,
   `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=35 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=38 ;
 
 --
 -- Dumping data for table `content`
 --
 
 INSERT INTO `content` (`id`, `image_id`, `name`, `description`, `file`, `dateAdded`, `type`) VALUES
-(27, 95, 'November 2014', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam posuere, nunc vitae faucibus pharetra, nibh urna faucibus sapien, at egestas mauris dolor eget massa. Sed ornare mi sed enim egestas, vel porttitor mauris blandit. Morbi posuere, felis ornare tincidunt fringilla, metus neque pretium mauris, vel hendrerit metus ex non magna. Suspendisse tristique lectus magna, ut placerat libero ullamcorper a. Phasellus egestas quis dui in ultricies. Aliquam mauris ante, efficitur eget vehicula at, elementum sed sem. Nullam dui risus, faucibus dictum vulputate sit amet, luctus ac leo. Sed venenatis turpis at lorem pulvinar consectetur. Maecenas id tellus blandit, porta massa eget, fringilla nisi.\r\n\r\nAliquam convallis mauris tempor euismod convallis. Suspendisse lectus sem, vulputate a bibendum sit amet, euismod vitae augue. Curabitur eget consequat ipsum. Fusce congue mattis justo, eget dignissim felis congue non. Maecenas bibendum metus vitae diam pharetra vulputate. Aliquam ut pellentesque tortor. In hac habitasse platea dictumst. Sed ligula lacus, aliquet rutrum iaculis sed, auctor at erat. Etiam et dui ligula. Nulla facilisi. Morbi luctus, tortor at dignissim finibus, tellus nibh gravida purus, vel fermentum ipsum ex facilisis nisl. Aliquam a tristique neque, ac euismod tortor. Mauris sed tristique elit, sed euismod risus. Vestibulum dictum ac tortor ac condimentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis imperdiet, lorem in tempor rhoncus, purus lectus ultricies dolor, id pulvinar arcu nisl congue enim.\r\n\r\nCurabitur ac condimentum lacus, sit amet gravida quam. Sed nec neque facilisis, porta libero a, ultricies magna. Donec accumsan, tortor aliquet scelerisque viverra, urna ipsum porta eros, quis feugiat est mauris nec erat. Proin dignissim elit in felis pharetra commodo. Nunc mollis velit vel consectetur maximus. Maecenas in lobortis ex. Integer volutpat ante sit amet sem tristique elementum. Integer orci eros, mattis at ligula eu, volutpat pretium arcu. Nullam gravida, lorem nec sagittis tempor, nulla metus viverra lectus, id vulputate dui ex sed metus. Maecenas scelerisque finibus libero, eu condimentum lectus dignissim sit amet. Curabitur at nisl elit.', NULL, 1430394813, 'newsletter'),
-(29, 97, 'December 2014', 'asbasdbasdbasdb', NULL, 1430394955, 'newsletter'),
 (31, 99, 'Kale Chips', 'Another veg we are seeing a lot of this time in the summer is kale. Kale is a super versatile vegetable\r\n– great for salads (try massaging the leaves in a lemon-based vinaigrette dressing for a few minutes –\r\nit breaks down the stiff fibres in the kale) - delicious sautéed with some olive oil, garlic and a few\r\nchilli flakes - and great when stirred through other dishes or soups. But there is only so much kale\r\nyou can eat in a week. So if you have a bit of a glut, here is a delicious way of extending the life of\r\nyour kale.\r\nThese chips are a favourite snack in our house and we go through them as quickly as I make them. In\r\nfact the bowl in the photo barely lasted long enough to get the shot. They will however, stay fresh in\r\na well-sealed container for up to two weeks. The key things to bear in mind when making kale ships\r\nare: (1) the kale must be impeccably dry before you start; (2) the olive oil must be distributed evenly\r\non all the chips; and (3) watch them very carefully towards the end of the cooking time. They turn\r\nfrom perfectly crisp to scorched and inedible in seconds. And you do not want a house filled with the\r\nsmell of burnt kale. Trust me on that one.', 'http://localhost/gardenCity2/uploads/files/recipes/Kale-chips.pdf', 1430723852, 'recipe'),
 (32, 100, 'Roasted Radishes', 'Radishes seem to be doing particularly well this summer. They haven’t fared too well in our garden\r\nthough. Our one year old Labrador has been digging them up and eating them under the cloak of\r\ndarkness each night as quickly as they mature, so I was pleased to see so many in my produce bag\r\nthis week.\r\nMost people associate radishes with salad. Their peppery crunch does add a certain oomph to the\r\nold greens, but don’t restrict yourself to just munching them raw – radishes are great roasted too.\r\nAnd for those who find their peppery bite a bit too strong, the roasting process really mellows them;\r\nit brings out a whole new side to these familiar vegetables. With a taste not dissimilar to roast\r\nturnips or swede, roasted radishes have a very different texture than their fresh counterpart. They\r\nretain their high water content, so be careful when you bite into one as the hot liquid can be a bit of\r\na hazard for the unaware.', 'http://localhost/gardenCity2/uploads/files/recipes/Roasted-Radishes.pdf', 1430724635, 'recipe'),
 (33, 101, 'Potato and Bean Curry', 'When our children were younger, we lived in Fiji for many years. Learning about the variety of\r\ncuisines that make up “Fijian food” was a revelation. Along with traditional Fijian food, there is\r\nwonderful Chinese-Fijian cuisine, adaptations of European cuisine using local ingredients, new\r\n“Pacific cuisine” and of course Indian inspired dishes.\r\nThe Indo-Fijian cuisine is absolutely amazing (make sure you visit a local curry house if you are in\r\nFiji!), and it is something we came to make at home regularly, as we continue to do here in\r\nChristchurch. This curry is a great way to take advantage of summer produce such as new season\r\npotatoes and beans. It is also very adaptable – it can be made with just potatoes or you can\r\nsubstitute cauliflower for the potatoes. You could also swap in a leafy greens (such as shredded\r\nsilver beet , spinach or kale) for the beans - whatever strikes your fancy, or in my case whatever is in\r\nseason and I have in the fridge on the day.\r\nI know it sounds like a lot of butter or oil in the dish, but don’t scrimp. The oil is an important carrier\r\nof the flavours, and you will also need that amount to properly temper the spices. The amount of\r\nwater you add will vary depending on how much liquid the potatoes absorb, the size of your pan and\r\nhow well the lid fits. So start with the recommended amount and add more as appropriate. This is a\r\n“dry” curry, so you want enough to steam the veggies, but not so much that it is soupy.', 'http://localhost/gardenCity2/uploads/files/recipes/Potato-and-Bean-Curry-raita_recipes.pdf', 1430725062, 'recipe'),
-(34, 102, 'Beetroot Raita', 'This is worth making for the colour alone. But I find that the earthy sweetness of the beetroot\r\ncomplements curries beautifully. And it''s a great way of using up all those beetroots from your\r\nGarden City 2.0 organics bag!', 'http://localhost/gardenCity2/uploads/files/recipes/Potato-and-Bean-Curry-raita_recipes1.pdf', 1430725242, 'recipe');
+(34, 102, 'Beetroot Raita', 'This is worth making for the colour alone. But I find that the earthy sweetness of the beetroot\r\ncomplements curries beautifully. And it''s a great way of using up all those beetroots from your\r\nGarden City 2.0 organics bag!', 'http://localhost/gardenCity2/uploads/files/recipes/Potato-and-Bean-Curry-raita_recipes1.pdf', 1430725242, 'recipe'),
+(35, 150, 'August 2014', 'In this issue we talk about the change in produce, some technical issues we''ve been having, some new delivery points and our bags.', NULL, 1431393580, 'newsletter'),
+(36, 151, 'September 2014', 'It’s been a while since we sent a big ole update email, so sit back and find out about, the latest produce updates, our trip away (No deliveries/market Oct 20-24), pickup point and market news and some housekeeping.', NULL, 1431393984, 'newsletter'),
+(37, 152, 'October 2014', 'The month we''ve got some more produce updates, a reminder about our trip, some updates for pickup point and markets and some more housekeeping.', NULL, 1431394207, 'newsletter');
 
 -- --------------------------------------------------------
 
@@ -136,13 +148,9 @@ CREATE TABLE IF NOT EXISTS `customers` (
 
 INSERT INTO `customers` (`id`) VALUES
 (1),
-(2),
-(3),
-(4),
-(5),
-(6),
-(7),
-(8);
+(16),
+(17),
+(19);
 
 -- --------------------------------------------------------
 
@@ -152,21 +160,20 @@ INSERT INTO `customers` (`id`) VALUES
 
 CREATE TABLE IF NOT EXISTS `deliverypoints` (
 `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8_unicode_ci,
   `day` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `timeFrom` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `timeTo` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `address` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+  `address` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `host_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `deliverypoints`
 --
 
-INSERT INTO `deliverypoints` (`id`, `name`, `description`, `day`, `timeFrom`, `timeTo`, `address`) VALUES
-(3, 'Harriot', 'Come round the back.....i dare you.', '4', '15:30', '17:30', '230 Centaurus Road, St Martins'),
-(4, 'Mashvin', 'DO it', '2', '13:30', '16:30', '16 Derrett Place, St Martins');
+INSERT INTO `deliverypoints` (`id`, `description`, `day`, `timeFrom`, `timeTo`, `address`, `host_id`) VALUES
+(8, 'Maecenas luctus ex ut metus euismod hendrerit. Praesent condimentum nec leo vel dignissim. Sed tortor neque, faucibus et eleifend in, maximus id turpis. Aenean feugiat consectetur tempor. Maecenas sodales neque non sagittis ornare. Nulla quis fringilla tellus. Maecenas sed justo suscipit, scelerisque tortor et, finibus dui. Nunc ut convallis odio. Nullam id lacus ante. Fusce congue turpis eget rutrum tempus. Mauris a tempus dolor.', '3', '9:30', '11:30', '230 Centaurus Road, St Martins', 1);
 
 -- --------------------------------------------------------
 
@@ -200,15 +207,14 @@ CREATE TABLE IF NOT EXISTS `gallerys` (
 `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `gallerys`
 --
 
 INSERT INTO `gallerys` (`id`, `name`, `description`) VALUES
-(1, 'First new gallery', 'Die pooped'),
-(2, 'FARMS', 'DAFBNSDFN');
+(1, 'Farms', 'A collection of farms');
 
 -- --------------------------------------------------------
 
@@ -221,7 +227,7 @@ CREATE TABLE IF NOT EXISTS `images` (
   `gallery_id` int(11) DEFAULT NULL,
   `location` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=130 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=166 ;
 
 --
 -- Dumping data for table `images`
@@ -235,8 +241,6 @@ INSERT INTO `images` (`id`, `gallery_id`, `location`, `title`) VALUES
 (87, NULL, 'http://localhost/gardenCity2/uploads/images/bananas-Hd-wallpaper11.jpeg', 'Lady Finger Bananas'),
 (88, NULL, NULL, 'Cat-time'),
 (90, 1, 'http://localhost/gardenCity2/uploads/images/Space-Art-Wallpaper.jpg', ''),
-(95, NULL, 'http://localhost/gardenCity2/uploads/images/newsletters/Space-Art-Wallpaper14.jpg', 'Cramberry'),
-(97, NULL, 'http://localhost/gardenCity2/uploads/images/newsletters/Desert2.jpg', 'Dessert'),
 (99, NULL, 'http://localhost/gardenCity2/uploads/images/recipes/Kale_Chips_(3425805140).jpg', 'Kale Chips'),
 (100, NULL, 'http://localhost/gardenCity2/uploads/images/recipes/img_9902.jpg', 'Roasted Radishes'),
 (101, NULL, 'http://localhost/gardenCity2/uploads/images/recipes/img_0112-potato-and-green-bean-curry.jpg', 'Potato and Bean Curry'),
@@ -244,13 +248,25 @@ INSERT INTO `images` (`id`, `gallery_id`, `location`, `title`) VALUES
 (103, NULL, 'http://localhost/gardenCity2/uploads/images/products/rsz_001_10447509large.jpg', 'Detroit Dark Red Beet Root'),
 (104, NULL, 'http://localhost/gardenCity2/uploads/images/products/Iceberg-Lettuce.jpg', 'Iceberg Lettuce'),
 (122, NULL, 'http://localhost/gardenCity2/uploads/images/location_farming2025.jpg', ''),
-(123, NULL, 'http://localhost/gardenCity2/uploads/images/green-field-farming.png', ''),
-(124, 2, 'http://localhost/gardenCity2/uploads/images/Desert1.jpg', ''),
-(125, 2, 'http://localhost/gardenCity2/uploads/images/Jellyfish1.jpg', ''),
-(126, 2, 'http://localhost/gardenCity2/uploads/images/Koala1.jpg', ''),
-(127, 2, 'http://localhost/gardenCity2/uploads/images/Lighthouse1.jpg', ''),
-(128, 2, 'http://localhost/gardenCity2/uploads/images/Tulips1.jpg', ''),
-(129, 2, 'http://localhost/gardenCity2/uploads/images/Chrysanthemum1.jpg', '');
+(145, NULL, 'http://localhost/gardenCity2/uploads/images/Beautiful-sun-shine-and-fluffy-clouds-summer-sunny-day_2560x1440.jpg', ''),
+(146, NULL, 'http://localhost/gardenCity2/uploads/images/North-Queensland-Potato-Farm-e37f75d1-b49f-4a7a-954a-5daf8ac8fd56-0-2080x1544.JPG', ''),
+(149, NULL, 'http://localhost/gardenCity2/uploads/images/green-field-farming.png', ''),
+(150, NULL, 'http://localhost/gardenCity2/uploads/images/newsletters/Christchurch-New-Zealand.jpg', 'Christchurch Port Hills'),
+(151, NULL, 'http://localhost/gardenCity2/uploads/images/newsletters/cMEvvTNNokGD8R_fH_QRmw.jpg', 'Organic Foods'),
+(152, NULL, 'http://localhost/gardenCity2/uploads/images/newsletters/3020337-poster-p-1-with-farmplicity-the-farm-to-table-movement-meets-the-21st-century.jpg', 'Farming'),
+(153, 1, 'http://localhost/gardenCity2/uploads/images/Hydrangeas1.jpg', ''),
+(154, 1, 'http://localhost/gardenCity2/uploads/images/Desert1.jpg', ''),
+(155, 1, 'http://localhost/gardenCity2/uploads/images/Jellyfish1.jpg', ''),
+(156, 1, 'http://localhost/gardenCity2/uploads/images/Tulips1.jpg', ''),
+(157, 1, 'http://localhost/gardenCity2/uploads/images/Chrysanthemum1.jpg', ''),
+(158, 1, 'http://localhost/gardenCity2/uploads/images/028.jpg', ''),
+(159, 1, 'http://localhost/gardenCity2/uploads/images/3020337-poster-p-1-with-farmplicity-the-farm-to-table-movement-meets-the-21st-century.jpg', ''),
+(160, 1, 'http://localhost/gardenCity2/uploads/images/bananas-Hd-wallpaper11.jpeg', ''),
+(161, 1, 'http://localhost/gardenCity2/uploads/images/Beautiful-sun-shine-and-fluffy-clouds-summer-sunny-day_2560x1440.jpg', ''),
+(162, 1, 'http://localhost/gardenCity2/uploads/images/location_farming2025.jpg', ''),
+(163, 1, 'http://localhost/gardenCity2/uploads/images/Christchurch-New-Zealand.jpg', ''),
+(164, 1, 'http://localhost/gardenCity2/uploads/images/IMG_2947.JPG', ''),
+(165, 1, 'http://localhost/gardenCity2/uploads/images/img_0112-potato-and-green-bean-curry.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -264,30 +280,25 @@ CREATE TABLE IF NOT EXISTS `lineitems` (
   `quantity_id` int(11) DEFAULT NULL,
   `order_id` int(11) DEFAULT NULL,
   `amount` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `lineitems`
 --
 
 INSERT INTO `lineitems` (`id`, `product_id`, `quantity_id`, `order_id`, `amount`) VALUES
-(5, 14, 12, 3, 1),
-(6, 17, 8, 3, 8),
-(7, 16, 14, 4, 1),
-(8, 17, 8, 4, 3),
-(9, 15, 13, 5, 1),
-(10, 18, 10, 5, 14),
-(11, 20, 16, 5, 2),
-(12, 21, 17, 5, 1),
-(13, 14, 12, 6, 1),
-(14, 17, 8, 6, 8),
-(15, 21, 17, 6, 3),
-(16, 20, 16, 6, 2),
-(17, 14, 12, 7, 1),
-(18, 17, 8, 7, 8),
-(19, 15, 13, 9, 1),
-(20, 18, 10, 9, 1),
-(21, 17, 8, 9, 7);
+(1, 14, 12, 1, 1),
+(2, 17, 8, 1, 13),
+(3, 14, 12, 2, 1),
+(4, 18, 10, 2, 12),
+(5, 20, 16, 2, 1),
+(6, 21, 17, 2, 4),
+(7, 17, 8, 2, 1),
+(8, 16, 14, 3, 1),
+(9, 18, 10, 3, 1),
+(10, 17, 8, 3, 3),
+(11, 20, 16, 3, 2),
+(12, 21, 17, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -305,8 +316,9 @@ CREATE TABLE IF NOT EXISTS `newsletters` (
 --
 
 INSERT INTO `newsletters` (`id`, `link`) VALUES
-(27, ''),
-(29, '');
+(35, 'http://us5.campaign-archive2.com/?u=1ab068a8de396b2d045de061e&id=bea64ea451'),
+(36, 'http://us5.campaign-archive2.com/?u=1ab068a8de396b2d045de061e&id=7aae04aba7'),
+(37, 'http://us5.campaign-archive2.com/?u=1ab068a8de396b2d045de061e&id=33ca50dd48');
 
 -- --------------------------------------------------------
 
@@ -322,20 +334,16 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `deliveryPoint_id` int(11) DEFAULT NULL,
   `extra_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`id`, `firstDelivery`, `nextDelivery`, `frequency`, `deliveryPoint_id`, `extra_id`, `user_id`) VALUES
-(3, 1432123200, 1432123200, '2', 3, NULL, 4),
-(4, 1432728000, 1432728000, '2', 3, NULL, 7),
-(5, 1432123200, 1432123200, '2', 3, NULL, NULL),
-(6, 1431345600, 1431345600, '2', 4, NULL, NULL),
-(7, 1432728000, 1432728000, '2', 3, NULL, NULL),
-(8, 1432728000, 1432728000, '2', 3, NULL, NULL),
-(9, 1433332800, 1433332800, '1', 3, NULL, 8);
+(1, 1431432000, 1431432000, '2', 8, NULL, 17),
+(2, 1433851200, 1433851200, '2', 8, NULL, 19),
+(3, 1432641600, 1432641600, '2', 8, NULL, 16);
 
 -- --------------------------------------------------------
 
@@ -348,18 +356,7 @@ CREATE TABLE IF NOT EXISTS `preferences` (
   `product_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `prefer` tinyint(1) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
-
---
--- Dumping data for table `preferences`
---
-
-INSERT INTO `preferences` (`id`, `product_id`, `user_id`, `prefer`) VALUES
-(4, 18, 7, 0),
-(13, 17, 4, 1),
-(14, 21, 4, 0),
-(15, 17, 8, 1),
-(16, 21, 8, 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -454,23 +451,24 @@ CREATE TABLE IF NOT EXISTS `quantities` (
   `product_id` int(11) DEFAULT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8_unicode_ci NOT NULL,
-  `value` int(11) NOT NULL
+  `value` int(11) NOT NULL,
+  `watch` tinyint(1) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `quantities`
 --
 
-INSERT INTO `quantities` (`id`, `product_id`, `name`, `description`, `value`) VALUES
-(8, 17, 'Each', '', 120),
-(9, 17, 'Box', '', 1560),
-(10, 18, 'Each', '', 120),
-(11, 18, 'Bunch', '', 500),
-(12, 14, 'Each', '', 0),
-(13, 15, 'Each', '', 0),
-(14, 16, 'Each', '', 0),
-(16, 20, 'Each', '', 120),
-(17, 21, 'Each', '', 300);
+INSERT INTO `quantities` (`id`, `product_id`, `name`, `description`, `value`, `watch`) VALUES
+(8, 17, 'Each', '', 120, 1),
+(9, 17, 'Box', '', 1560, 0),
+(10, 18, 'Each', '', 120, 0),
+(11, 18, 'Bunch', '', 500, 0),
+(12, 14, 'Each', '', 0, 0),
+(13, 15, 'Each', '', 0, 0),
+(14, 16, 'Each', '', 0, 0),
+(16, 20, 'Each', '', 120, 0),
+(17, 21, 'Each', '', 300, 0);
 
 -- --------------------------------------------------------
 
@@ -523,27 +521,27 @@ CREATE TABLE IF NOT EXISTS `users` (
 `id` int(11) NOT NULL,
   `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `firstName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `firstName` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `lastName` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `discount` int(11) DEFAULT NULL,
-  `role` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+  `role` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `balance` double DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `firstName`, `lastName`, `phone`, `email`, `discount`, `role`) VALUES
-(1, 'Admin', 'janice321', 'Emmett', 'Newman', '9801342', NULL, NULL, 'public'),
-(2, 'dgsdg', 'asdgasdg', 'dg', 'gsdgas', 'asdgasd', NULL, NULL, 'public'),
-(3, 'zxcbzx', 'zbxcbz', 'vzcxb', 'zxcbzxcb', 'cbxzcbzx', NULL, NULL, 'public'),
-(4, 'Barlu', 'janice321', '', '', '', NULL, NULL, 'public'),
-(5, 'Barlu', 'janice321', '', '', '', NULL, NULL, 'public'),
-(6, 'Barlu', 'janice321', '', '', '', NULL, NULL, 'public'),
-(7, 'asvfasdvsd', '', 'sdfbfbdf', 'basdfbsdf', 'bsdf', '', NULL, 'public'),
-(8, 'sdgasd', 'asdg', 'dgqsdg', 'asdgasdg', 'asdg', 'asdg', NULL, 'public');
+INSERT INTO `users` (`id`, `username`, `password`, `firstName`, `lastName`, `phone`, `email`, `discount`, `role`, `status`, `balance`) VALUES
+(1, 'barlu', 'BOXSeWoY0lhCgsEBWnQjQYYQXOrKkLzUMgld68OyuXmLB4TtBV9wp9MMQnonpgdIMxPhcAiK/hDtNvMZIxRPdA==', 'Emmett', 'Newman', '9801342', 'asdfsdagsdag@asdgasdg.com', NULL, 'public', 'active', NULL),
+(16, 'christine', 'DxkM6mgrB9ADhEERrnY/eDwgYti0v/0IH2co94NPYOtdqJAuOffHHp/loClmOFvYwQlLGoWagVcyOpM0TuNZBw==', 'Christine', '', '64364', 'sdvsdv@sg.com', NULL, 'public', 'active', NULL),
+(17, 'heebs', '0A4V274Q57sh3AzZiYbIwontPwjlC4FCabdmHtnmLKUtBw/icMXLvoalMxI2O1yZU1X56TBYYe0p+XjNOzXHFw==', 'Herbert', '', '9801342', 'asdgsd@sadgasd.com', NULL, 'public', 'active', NULL),
+(18, 'steven', 'eU+bTZkKz9YO8Tb/aBQUUTlVjGFIrbDGXfNYK0EdwJwjiZ5+ZHQ42ZavZ3GJYA5KzXXf7IJoAHGWW/hK0xCPYA==', 'Steven', '', '9801342', 'assdag@sdgsdfg.com', NULL, 'wholesaler', 'active', NULL),
+(19, 'sarah', 'THRkOrY7yIxS+Ntr7v8hnl1w/fumgsJY0k+GpOcMxyXMVSrhzB5Rx6ThGS+vgNDKdwe8/ePMJjnLuvajQlS/bg==', 'Sarah', '', '98134563', 'asdf@sdag.com', NULL, 'public', 'active', NULL),
+(20, 'admin', 'GiJMeLudT4Ye3RFvETcW/WjKwgUn0GVeWmAY9AawWBH3pnHv4ex0MKsf0p/E3/EfiREdlUxSDA+B/d+7uD7QQw==', 'Emmett', '', '898152451', 'asdfsdg@asdgasd.com', NULL, 'admin', 'active', NULL);
 
 -- --------------------------------------------------------
 
@@ -552,8 +550,16 @@ INSERT INTO `users` (`id`, `username`, `password`, `firstName`, `lastName`, `pho
 --
 
 CREATE TABLE IF NOT EXISTS `wholesalers` (
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `businessName` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `wholesalers`
+--
+
+INSERT INTO `wholesalers` (`id`, `businessName`) VALUES
+(18, 'Stevens Emporium');
 
 --
 -- Indexes for dumped tables
@@ -599,7 +605,7 @@ ALTER TABLE `customers`
 -- Indexes for table `deliverypoints`
 --
 ALTER TABLE `deliverypoints`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `UNIQ_BA2581111FB8D185` (`host_id`);
 
 --
 -- Indexes for table `extra`
@@ -711,17 +717,17 @@ ALTER TABLE `wholesalers`
 -- AUTO_INCREMENT for table `banner`
 --
 ALTER TABLE `banner`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=56;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=67;
 --
 -- AUTO_INCREMENT for table `content`
 --
 ALTER TABLE `content`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=35;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT for table `deliverypoints`
 --
 ALTER TABLE `deliverypoints`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `extra`
 --
@@ -731,27 +737,27 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `gallerys`
 --
 ALTER TABLE `gallerys`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=130;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=166;
 --
 -- AUTO_INCREMENT for table `lineitems`
 --
 ALTER TABLE `lineitems`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `preferences`
 --
 ALTER TABLE `preferences`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `prices`
 --
@@ -771,7 +777,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 -- Constraints for dumped tables
 --
@@ -805,6 +811,12 @@ ADD CONSTRAINT `FK_FEC530A93DA5256D` FOREIGN KEY (`image_id`) REFERENCES `images
 --
 ALTER TABLE `customers`
 ADD CONSTRAINT `FK_62534E21BF396750` FOREIGN KEY (`id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `deliverypoints`
+--
+ALTER TABLE `deliverypoints`
+ADD CONSTRAINT `FK_BA2581111FB8D185` FOREIGN KEY (`host_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `extra_product`
