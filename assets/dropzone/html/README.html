@@ -1,0 +1,91 @@
+<p><img alt="Dropzone.js" src="http://www.dropzonejs.com/images/new-logo.svg" /></p>
+<p><a href="https://codeship.com/projects/55087"> <img src="https://codeship.com/projects/3fc90800-74e0-0132-38ce-22ab3bab314c/status?branch=master" alt="Codeship Status for enyo/dropzone"></a></p>
+<p>Dropzone.js is a light weight JavaScript library that turns an HTML element into a dropzone.
+This means that a user can drag and drop a file onto it, and the file gets uploaded to the server via AJAX.</p>
+<hr>
+<p><em>If you want support, please use <a href="http://stackoverflow.com/">stackoverflow</a> with the <code>dropzone.js</code> tag and not the
+GitHub issues tracker. Only post an issue here if you think you discovered a bug or have a feature request.</em></p>
+<hr>
+<p><strong>Please read the <a href="CONTRIBUTING.md">contributing guidelines</a> before you start working on Dropzone!</strong></p>
+<p><br></p>
+<p><div align="center">
+  <a href="https://github.com/enyo/dropzone/releases/latest"><strong>&gt;&gt; Download &lt;&lt;</strong></a>
+</div>
+<br>
+<br></p>
+<p>Starting with version 2.0.0 this library does no longer depend on jQuery (but
+it still works as a jQuery module).</p>
+<p>Dropzone is compatible with <a href="https://github.com/component/component">component</a>,
+there&#39;s a standalone version and an <a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a>
+module that&#39;s compatible with <a href="http://requirejs.org">RequireJS</a> in the downloads
+folder.</p>
+<p><img slt="Dropzone Screenshot" width="585" src="http://i.imgur.com/Xf7QvVG.png" /></p>
+<h2 id="main-features">Main features</h2>
+<ul>
+<li>Image thumbnail previews. Simply register the callback <code>thumbnail(file, data)</code> and display the image wherever you like</li>
+<li>Retina enabled</li>
+<li>Multiple files and synchronous uploads</li>
+<li>Progress updates</li>
+<li>Support for large files</li>
+<li>Complete theming. The look and feel of Dropzone is just the default theme. You
+can define everything yourself by overwriting the default event listeners.</li>
+<li>Well tested</li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<p>For the full documentation and installation please visit www.dropzonejs.com</p>
+<p>Please also refer to the <a href="https://github.com/enyo/dropzone/wiki/FAQ">FAQ</a>.</p>
+<h2 id="examples">Examples</h2>
+<p>For examples, please see the <a href="https://github.com/enyo/dropzone/wiki">GitHub wiki</a>.</p>
+<h2 id="usage">Usage</h2>
+<p>Implicit creation:</p>
+<pre><code class="lang-html">&lt;form id=&quot;my-awesome-dropzone&quot; action=&quot;/target&quot; class=&quot;dropzone&quot;&gt;&lt;/form&gt;
+</code></pre>
+<p>That&#39;s it. Really!</p>
+<p>Dropzone will automatically attach to it, and handle file drops.</p>
+<p>Want more control? You can configure dropzones like this:</p>
+<pre><code class="lang-js">// &quot;myAwesomeDropzone&quot; is the camelized version of the ID of your HTML element
+Dropzone.options.myAwesomeDropzone = { maxFilesize: 1 };
+</code></pre>
+<p>...or instantiate dropzone manually like this:</p>
+<pre><code class="lang-js">new Dropzone(&quot;div#my-dropzone&quot;, { /* options */ });
+</code></pre>
+<blockquote>
+<p>Note that dropzones don&#39;t have to be forms. But if you choose another element you have to pass the <code>url</code> parameter in the options.</p>
+</blockquote>
+<p>For configuration options please look at the <a href="http://www.dropzonejs.com/#configuration">documentation on the website</a>
+or at the <a href="https://github.com/enyo/dropzone/blob/master/src/dropzone.coffee#L90">source</a>.</p>
+<h3 id="register-for-events">Register for events</h3>
+<p>If you want to register to some event you can do so on the <code>dropzone</code> object itself:</p>
+<pre><code class="lang-js">Dropzone.options.myDropzone({
+  init: function() {
+    this.on(&quot;error&quot;, function(file, message) { alert(message); });
+  }
+});
+// or if you need to access a Dropzone somewhere else:
+var myDropzone = Dropzone.forElement(&quot;div#my-dropzone&quot;);
+myDropzone.on(&quot;error&quot;, function(file, message) { alert(message); });
+</code></pre>
+<p>For a list of all events, please look at the chapter 
+<a href="http://www.dropzonejs.com/#listen_to_events">»listen to events«</a> in the documentation
+or at the <a href="src/dropzone.coffee#L43">source</a>.</p>
+<h2 id="browser-support">Browser support</h2>
+<ul>
+<li>Chrome 7+</li>
+<li>Firefox 4+</li>
+<li>IE 10+</li>
+<li>Opera 12+ (Version 12 for MacOS is disabled because their API is buggy)</li>
+<li>Safari 6+</li>
+</ul>
+<p>For all the other browsers, dropzone provides an oldschool file input fallback.</p>
+<h2 id="why-another-library-">Why another library?</h2>
+<p>I realize that there <a href="http://valums.com/ajax-upload/">are</a> <a href="http://tutorialzine.com/2011/09/html5-file-upload-jquery-php/">already</a> <a href="http://code.google.com/p/html5uploader/">other</a> <a href="http://blueimp.github.com/jQuery-File-Upload/">libraries</a> out there but the reason I decided to write my own are the following:</p>
+<ul>
+<li>I didn&#39;t want it to be too big, and to cumbersome to dive into.</li>
+<li>I want to design my own elements. I only want to register callbacks so I can update my elements accordingly.</li>
+<li>Big files should get uploaded without a problem.</li>
+<li>I wanted a callback for image previews, that don&#39;t kill the browser if too many too big images are viewed.</li>
+<li>I want to use the latest API of browsers. I don&#39;t care if it falls back to the normal upload form if the browser is too old.</li>
+<li>I don&#39;t think that it&#39;s necessary anymore to depend on libraries such as jQuery (especially when providing functionality that isn&#39;t available in old browsers anyway).</li>
+</ul>
+<h2 id="mit-license">MIT License</h2>
+<p>See LICENSE file</p>
