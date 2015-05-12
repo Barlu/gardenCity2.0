@@ -1,0 +1,5 @@
+{
+    "require": {
+        "jms/serializer": "0.16.*"
+    }
+}
